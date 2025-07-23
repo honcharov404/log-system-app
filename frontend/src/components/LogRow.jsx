@@ -1,4 +1,5 @@
 import { useState } from "react";
+// components
 import Modal from "./Modal";
 
 const LogRow = ({ log, onSave, onDelete }) => {
@@ -11,41 +12,48 @@ const LogRow = ({ log, onSave, onDelete }) => {
         <input
           type="text"
           value={editing.owner}
-          onChange={e => setEditing({ ...editing, owner: e.target.value })}
-          className="w-full px-1 py-0.5 border rounded"
           aria-label="Edit Owner"
+          className="w-full px-1 py-0.5 border rounded"
+          onChange={e => setEditing({ ...editing, owner: e.target.value })}
         />
       </td>
       <td className="px-2 py-1 text-sm">{new Date(log.createdAt).toLocaleString()}</td>
       <td className="px-2 py-1 text-sm">{new Date(log.updatedAt).toLocaleString()}</td>
       <td className="px-2 py-1">
         <textarea
-          value={editing.text}
-          onChange={e => setEditing({ ...editing, text: e.target.value })}
-          className="w-full px-1 py-0.5 border rounded"
           rows={2}
+          value={editing.text}
           aria-label="Edit Log Text"
+          className="w-full px-1 py-0.5 border rounded"
+          onChange={e => setEditing({ ...editing, text: e.target.value })}
         />
       </td>
       <td className="px-2 py-1 text-center">
         <button
-          className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded mr-1"
           onClick={() => onSave({ ...log, ...editing })}
-        >Save</button>
+          className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded mr-1"
+        >
+          Save
+        </button>
         <button
-          className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded"
           onClick={() => setShowModal(true)}
-        >Delete</button>
-        {showModal && (
-          <Modal
-            message="Are you sure you want to delete this log?"
-            onConfirm={() => {
-              onDelete(log.id);
-              setShowModal(false);
-            }}
-            onCancel={() => setShowModal(false)}
-          />
-        )}
+          className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded"
+        >
+          Delete
+        </button>
+        {
+          showModal && (
+            <Modal
+              btnName="Delete"
+              onCancel={() => setShowModal(false)}
+              message="Are you sure you want to delete this log?"
+              onConfirm={() => {
+                onDelete(log.id);
+                setShowModal(false);
+              }}
+            />
+          )
+        }
       </td>
     </tr>
   );

@@ -9,11 +9,81 @@ app.use(express.json());
 let logs = [
   {
     id: uuidv4(),
-    owner: 'Alice',
-    text: 'System booted.',
+    owner: 'Carol Danvers',
+    text: 'Carol Danvers is the Captain Marvel',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
-  }
+  },
+  {
+    id: uuidv4(),
+    owner: 'Bruce Banner',
+    text: 'Bruc Banner is the Hulk',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Tony Stark',
+    text: 'Tony Stark is the Iron Man',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Peter Parker',
+    text: 'Peter Parker is the Spiderman',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Stephen Vincent Strange',
+    text: 'Stephen Vincent Strange is the Doctor Strange',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Groot',
+    text: 'Groot is the Groot',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Natasha Romanoff',
+    text: 'Natasha Romanoff is the Black Widow',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Steave Rogers',
+    text: 'Steave Rogers is the Captain America',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Thor Odinson',
+    text: 'Thor Odinson is the Thor',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Scott Lang',
+    text: 'Scott Lang is the Ant-Man',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
+  {
+    id: uuidv4(),
+    owner: 'Hope van Dyne',
+    text: 'Hope van Dyne is the Wasp',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  },
 ];
 
 app.get('/api/logs', (req, res) => {
