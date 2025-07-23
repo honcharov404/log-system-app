@@ -1,10 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
+import express, { json } from 'express';
+import cors from 'cors';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 let logs = [
   {
@@ -87,7 +87,8 @@ let logs = [
 ];
 
 app.get('/api/logs', (req, res) => {
-  res.json(logs);
+  const sortedLogs = logs.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  res.json(sortedLogs);
 });
 
 app.post('/api/logs', (req, res) => {
