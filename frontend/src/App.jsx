@@ -44,12 +44,12 @@ const App = () => {
     try {
       await axios.post(`${BASE_URL}/api/logs`, log);
 
-      setToast({ message: 'Log updated', type: 'success' });
+      setToast({ message: 'Log added successfully', type: 'success' });
       setNewLog({ text: '', owner: '' });
       fetchLogs();
     } catch {
       setLoading(false);
-      setToast({ message: 'Failed to update log', type: 'error' });
+      setToast({ message: 'Failed to add log', type: 'error' });
     }
   };
 
@@ -89,9 +89,8 @@ const App = () => {
         <div className="p-4 max-w-5xl mx-auto min-h-screen">
           <h1 className="text-2xl font-bold mb-4 text-center">Logs List</h1>
           <button
-            className="block mx-auto mb-4 bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded"
             onClick={() => setShowAddModal(true)}
-            // onClick={() => handleAdd(newLog)}
+            className="block mx-auto mb-4 bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded"
           >
             Add Log
           </button>
