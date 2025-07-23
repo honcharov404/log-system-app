@@ -1,10 +1,10 @@
-import express, { json } from 'express';
-import cors from 'cors';
-import { v4 as uuidv4 } from 'uuid';
+const express = require('express');
+const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 let logs = [
   {
