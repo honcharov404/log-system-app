@@ -31,13 +31,13 @@ const LogRow = ({ log, onSave, onDelete }) => {
       <td className="px-2 py-1 text-center">
         <button
           onClick={() => onSave({ ...log, ...editing })}
-          className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded mr-1"
+          className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded cursor-pointer mr-1"
         >
           Save
         </button>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded"
+          className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded cursor-pointer"
         >
           Delete
         </button>

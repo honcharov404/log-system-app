@@ -7,7 +7,7 @@ const Toast = ({ message, type, onClose }) => (
     <button
       onClick={onClose}
       aria-label="Close Toast"
-      className="ml-4 text-white font-bold"
+      className="ml-4 text-white font-bold cursor-pointer"
     >
       x
     </button>

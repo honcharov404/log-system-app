@@ -90,7 +90,7 @@ const App = () => {
           <h1 className="text-2xl font-bold mb-4 text-center">Logs List</h1>
           <button
             onClick={() => setShowAddModal(true)}
-            className="block mx-auto mb-4 bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded"
+            className="block mx-auto mb-4 bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded cursor-pointer"
           >
             Add Log
           </button>
@@ -125,7 +125,7 @@ const App = () => {
                               <button
                                 key={num}
                                 onClick={() => setCurrentPage(num)}
-                                className={`px-3 py-1 rounded ${currentPage === num ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                                className={`px-3 py-1 rounded cursor-pointer ${currentPage === num ? "bg-blue-500 text-white" : "bg-gray-200"}`}
                               >
                                 {num}
                               </button>
