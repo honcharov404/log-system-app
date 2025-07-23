@@ -13,7 +13,7 @@ const LogRow = ({ log, onSave, onDelete }) => {
           type="text"
           value={editing.owner}
           aria-label="Edit Owner"
-          className="w-full px-1 py-0.5 border rounded"
+          className="w-full min-w-[220px] px-1 py-0.5 border rounded"
           onChange={e => setEditing({ ...editing, owner: e.target.value })}
         />
       </td>
@@ -24,37 +24,39 @@ const LogRow = ({ log, onSave, onDelete }) => {
           rows={2}
           value={editing.text}
           aria-label="Edit Log Text"
-          className="w-full px-1 py-0.5 border rounded"
+          className="w-full min-w-[220px] px-1 py-0.5 border rounded"
           onChange={e => setEditing({ ...editing, text: e.target.value })}
         />
       </td>
       <td className="px-2 py-1 text-center">
-        <button
-          onClick={() => onSave({ ...log, ...editing })}
-          className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded cursor-pointer mr-1"
-        >
-          Save
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded cursor-pointer"
-        >
-          Delete
-        </button>
-        {
-          showModal && (
-            <Modal
-              btnName="Delete"
-              onCancel={() => setShowModal(false)}
-              message="Are you sure you want to delete this log?"
-              onConfirm={() => {
-                onDelete(log.id);
-                setShowModal(false);
-              }}
-            />
-          )
-        }
+        <div className="flex justify-center items-center gap-2 flex-nowrap">
+          <button
+            onClick={() => onSave({ ...log, ...editing })}
+            className="bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded cursor-pointer mr-1"
+          >
+            Save
+          </button>
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded cursor-pointer"
+          >
+            Delete
+          </button>
+        </div>
       </td>
+      {
+        showModal && (
+          <Modal
+            btnName="Delete"
+            onCancel={() => setShowModal(false)}
+            message="Are you sure you want to delete this log?"
+            onConfirm={() => {
+              onDelete(log.id);
+              setShowModal(false);
+            }}
+          />
+        )
+      }
     </tr>
   );
 };

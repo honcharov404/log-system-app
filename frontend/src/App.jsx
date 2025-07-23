@@ -117,25 +117,25 @@ const App = () => {
                       }
                     </tbody>
                   </table>
-                  {
-                    totalPages > 1 && (
-                        <div className="mt-2 flex justify-center gap-2">
-                          {
-                            Array.from({ length: totalPages }, (_, i) => i + 1).map(num => (
-                              <button
-                                key={num}
-                                onClick={() => setCurrentPage(num)}
-                                className={`px-3 py-1 rounded cursor-pointer ${currentPage === num ? "bg-blue-500 text-white" : "bg-gray-200"}`}
-                              >
-                                {num}
-                              </button>
-                            ))
-                          }
-                        </div>
-                    )
-                  }
                 </div>
               )
+          }
+          {
+            totalPages > 1 && (
+                <div className="mt-2 flex justify-center gap-2">
+                  {
+                    Array.from({ length: totalPages }, (_, i) => i + 1).map(num => (
+                      <button
+                        key={num}
+                        onClick={() => setCurrentPage(num)}
+                        className={`px-3 py-1 rounded cursor-pointer ${currentPage === num ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                      >
+                        {num}
+                      </button>
+                    ))
+                  }
+                </div>
+            )
           }
           {
             showAddModal && (
